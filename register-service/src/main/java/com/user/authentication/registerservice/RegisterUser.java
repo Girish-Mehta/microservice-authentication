@@ -2,6 +2,7 @@ package com.user.authentication.registerservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,5 +19,10 @@ public class RegisterUser {
 		Boolean response = proxy.addUser(user);
 		
 		return response;
+	}
+	
+	@GetMapping("/users")
+	public String helloWorld() {
+		return "Success!";
 	}
 }
